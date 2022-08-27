@@ -1,18 +1,30 @@
 function isPalindrome(word) {
   // Write your algorithm here
-  var reg = /[\W_]/g; //the slash signifies a start of regular expression. 
-  //backslash & W to match all alphanumeric values, g  for global
-  var smallStr = word.toLowerCase().replace(reg, '');
-
-  var reversed = smallStr.split('').reverse().join('');
-  
-  if(reversed === smallStr) return true;
-
-    return false;
+  // ...
+  for (let startIndex = 0; startIndex < word.length / 2; startIndex++) {
+    const endIndex = word.length - 1 - startIndex;
+    if (word[startIndex] !== word[endIndex]) return false;
+    return true;
+  }
 }
-isPalindrome('racecar');
+
 /* 
   Add your pseudocode here
+  r a c e c a r
+0 1 2 3 4 5 6
+i           j
+
+r a c e c a r
+0 1 2 3 4 5 6
+  i       j
+
+r a c e c a r
+0 1 2 3 4 5 6
+    i   j
+
+r a c e c a r
+0 1 2 3 4 5 6
+      ij
 */
 
 /*
